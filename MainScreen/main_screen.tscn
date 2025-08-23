@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2epr4gbyl8lp"]
 
 [ext_resource type="PackedScene" uid="uid://bahwck8bi5qhm" path="res://DancingBee/dancing_bee.tscn" id="1_48woe"]
-[ext_resource type="Texture2D" uid="uid://bxkreakf44bd7" path="res://MainScreen/BeeBackground.PNG" id="1_ynihm"]
+[ext_resource type="Texture2D" uid="uid://0qgh6ogq5tv3" path="res://MainScreen/BeeBackground_2.PNG" id="1_ynihm"]
 [ext_resource type="PackedScene" uid="uid://bbhtniwtgwcqn" path="res://Systems/movement_tracker_system.tscn" id="2_y3dpw"]
 [ext_resource type="PackedScene" uid="uid://b18rb1lya6qi4" path="res://MainScreen/map.tscn" id="4_rmsnq"]
 
@@ -13,9 +13,10 @@ scale = Vector2(3.6, 3.6)
 texture = ExtResource("1_ynihm")
 
 [node name="DancingBee" parent="." instance=ExtResource("1_48woe")]
-position = Vector2(858, 441)
+position = Vector2(782, 472)
 
 [node name="MovementTrackerSystem" parent="." instance=ExtResource("2_y3dpw")]
 
 [node name="Map" parent="." instance=ExtResource("4_rmsnq")]
+texture_filter = 1
 position = Vector2(478, 274)

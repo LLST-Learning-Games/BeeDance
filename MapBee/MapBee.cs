@@ -6,6 +6,7 @@ using Godot.Collections;
 public partial class MapBee : Node2D
 {
     [Export] private float _speed = 3f;
+    
     private List<Vector2> _path;
     
     public void SetPath(Array<Vector2> path)

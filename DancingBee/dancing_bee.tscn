@@ -1,14 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://bahwck8bi5qhm"]
+[gd_scene load_steps=10 format=3 uid="uid://bahwck8bi5qhm"]
 
-[ext_resource type="Texture2D" uid="uid://cehg5ipeuwxy7" path="res://DancingBee/circle.png" id="1_l82fe"]
+[ext_resource type="Texture2D" uid="uid://dd03we32w5i3d" path="res://DancingBee/NavigationGauge.PNG" id="1_npsbh"]
 [ext_resource type="Script" uid="uid://m2vfk6rc6iy3" path="res://DancingBee/BeeMouseInput.cs" id="2_l82fe"]
-[ext_resource type="Texture2D" uid="uid://dn2vpruraodwf" path="res://DancingBee/bee_circle.png" id="2_npsbh"]
+[ext_resource type="Texture2D" uid="uid://bu0dicdk0tnsm" path="res://DancingBee/CalibrateBee.PNG" id="2_lj6bm"]
+[ext_resource type="Texture2D" uid="uid://dsys6pkrxqnqb" path="res://DancingBee/Marshall_Blink-Sheet.png" id="3_lj6bm"]
+[ext_resource type="Texture2D" uid="uid://65d2sj238m57" path="res://DancingBee/Marshall_ASSet.png" id="4_lj6bm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm7eo"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuvt8"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lj6bm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_npsbh")
+"texture": SubResource("AtlasTexture_cm7eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm7eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm7eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm7eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuvt8")
 }],
 "loop": true,
 "name": &"default",
@@ -19,7 +41,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_npsbh")
+"texture": ExtResource("4_lj6bm")
 }],
 "loop": true,
 "name": &"default",
@@ -28,18 +50,26 @@ animations = [{
 
 [node name="DancingBee" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0.141176, 1)
-scale = Vector2(3, 3)
-texture = ExtResource("1_l82fe")
+[node name="BeeGuage" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_npsbh")
+
+[node name="BeeGears" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_lj6bm")
 
 [node name="BeeBody" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.513233, 0.513233, 0.513233, 1)
-position = Vector2(-31, -72)
-scale = Vector2(3, 3)
+texture_filter = 1
+position = Vector2(-58, -58)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_lj6bm")
+frame_progress = 0.295197
 
 [node name="BeeButt" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(5, 17)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_cm7eo")
 
