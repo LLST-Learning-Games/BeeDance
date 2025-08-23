@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bahwck8bi5qhm"]
+
+[ext_resource type="Texture2D" uid="uid://cehg5ipeuwxy7" path="res://DancingBee/circle.png" id="1_l82fe"]
+[ext_resource type="Script" uid="uid://m2vfk6rc6iy3" path="res://DancingBee/BeeMouseInput.cs" id="2_l82fe"]
+[ext_resource type="Texture2D" uid="uid://dn2vpruraodwf" path="res://DancingBee/bee_circle.png" id="2_npsbh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lj6bm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_npsbh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cm7eo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_npsbh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DancingBee" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0.141176, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("1_l82fe")
+
+[node name="BeeBody" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
+position = Vector2(-31, -72)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_lj6bm")
+
+[node name="BeeButt" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_cm7eo")
+
+[node name="BeeMouseInput" type="Node2D" parent="." node_paths=PackedStringArray("_beeButt")]
+script = ExtResource("2_l82fe")
+_beeButt = NodePath("../BeeButt")
+_distanceRatio = 10.0
+_maxInputDistance = 800.0
+_maxDistance = 20.0

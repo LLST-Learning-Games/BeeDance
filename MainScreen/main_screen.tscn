@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2epr4gbyl8lp"]
+
+[ext_resource type="PackedScene" uid="uid://bahwck8bi5qhm" path="res://DancingBee/dancing_bee.tscn" id="1_48woe"]
+[ext_resource type="PackedScene" uid="uid://bbhtniwtgwcqn" path="res://Systems/movement_tracker_system.tscn" id="2_y3dpw"]
+[ext_resource type="Script" uid="uid://c6pq1w27ldgu2" path="res://MainScreen/Map.cs" id="3_6iyel"]
+[ext_resource type="PackedScene" uid="uid://cvc2hnbij3cho" path="res://MapBee/map_bee.tscn" id="4_ynihm"]
+
+[node name="MainScreen" type="Node2D"]
+
+[node name="DancingBee" parent="." instance=ExtResource("1_48woe")]
+position = Vector2(917, 421)
+
+[node name="MovementTrackerSystem" parent="." instance=ExtResource("2_y3dpw")]
+
+[node name="Map" type="Node2D" parent="."]
+position = Vector2(293, 319)
+script = ExtResource("3_6iyel")
+_beePrefab = ExtResource("4_ynihm")
