@@ -15,14 +15,18 @@ public partial class BeeMouseInput : Node2D
         {
             if (mouseButtonEvent.ButtonIndex == MouseButton.Left)
             {
+                // this means mouse button was just lifted
+                if (_isMouseButtonDown && !mouseButtonEvent.Pressed)
+                {
+                    _beeButt.Position = Vector2.Zero;
+                    Map.Instance.SpawnBeeAndMove();
+                }
                 _isMouseButtonDown = mouseButtonEvent.Pressed;
             }
         }
 
         if (!_isMouseButtonDown)
         {
-            _beeButt.Position = Vector2.Zero;
-            Map.Instance.SpawnBeeAndMove();
             return;
         }
         

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b18rb1lya6qi4"]
+
+[ext_resource type="Script" uid="uid://c6pq1w27ldgu2" path="res://MainScreen/Map.cs" id="1_pww3c"]
+[ext_resource type="PackedScene" uid="uid://cvc2hnbij3cho" path="res://MapBee/map_bee.tscn" id="2_56033"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_pww3c")
+_beePrefab = ExtResource("2_56033")

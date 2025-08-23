@@ -29,6 +29,8 @@ public partial class MovementTrackerSystem : Node2D
     {
         _movementSnapshots.Clear();
     }
+    
+    public Array<Vector2> GetMovementSnapshots() => _movementSnapshots;
 }
 
 

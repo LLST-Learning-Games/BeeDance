@@ -1,12 +1,108 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvc2hnbij3cho"]
+[gd_scene load_steps=18 format=3 uid="uid://cvc2hnbij3cho"]
 
-[ext_resource type="Texture2D" uid="uid://dn2vpruraodwf" path="res://DancingBee/bee_circle.png" id="1_hs0mk"]
+[ext_resource type="Script" uid="uid://cf52ba2h4n3xh" path="res://MapBee/MapBee.cs" id="1_wtg4u"]
+[ext_resource type="Texture2D" uid="uid://ce27cwcschyx3" path="res://MapBee/beeplane_2-Sheet.png" id="2_wtg4u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yo6s"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sobjb"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adlyc"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chi1j"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyix2"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgwkx"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxhkv"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wumy6"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1um5"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5v7j"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ek2"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhwf8"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs062"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pqol"]
+atlas = ExtResource("2_wtg4u")
+region = Rect2(416, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wtg4u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_hs0mk")
+"texture": SubResource("AtlasTexture_8yo6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sobjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adlyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chi1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyix2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgwkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxhkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wumy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1um5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5v7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1ek2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhwf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs062")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pqol")
 }],
 "loop": true,
 "name": &"default",
@@ -14,6 +110,10 @@ animations = [{
 }]
 
 [node name="MapBee" type="Node2D"]
+script = ExtResource("1_wtg4u")
+_speed = 1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wtg4u")
+autoplay = "default"
+frame_progress = 0.271936

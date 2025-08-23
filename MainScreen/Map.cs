@@ -4,7 +4,7 @@ using System;
 public partial class Map : Node2D
 {
     [Export] private PackedScene _beePrefab;
-    private Node2D _beeInstance;
+    private MapBee _beeInstance;
     public static Map Instance { get; private set; }
     
     
@@ -22,13 +22,15 @@ public partial class Map : Node2D
 
     public void SpawnBeeAndMove()
     {
-        if (_beeInstance != null)
+        if (_beeInstance == null)
         {
-            _beeInstance = _beePrefab.Instantiate() as Node2D;
+            _beeInstance = _beePrefab.Instantiate() as MapBee;
             AddChild(_beeInstance);
+            GD.Print("Spawning bee");
             _beeInstance.Position = Vector2.Zero;
         }
         
+        _beeInstance.SetPath(MovementTrackerSystem.Instance.GetMovementSnapshots());
         MovementTrackerSystem.Instance.ClearMovementSnapshots();
     }
 }
