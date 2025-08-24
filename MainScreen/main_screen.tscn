@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2epr4gbyl8lp"]
+[gd_scene load_steps=15 format=3 uid="uid://b2epr4gbyl8lp"]
 
 [ext_resource type="PackedScene" uid="uid://bahwck8bi5qhm" path="res://DancingBee/dancing_bee.tscn" id="1_48woe"]
 [ext_resource type="Texture2D" uid="uid://0qgh6ogq5tv3" path="res://MainScreen/BeeBackground_2.PNG" id="1_ynihm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bfgh38xkw5ej1" path="res://MainScreen/Title.PNG" id="7_6reht"]
 [ext_resource type="PackedScene" uid="uid://bakye64uw2e7x" path="res://FlowerScore/flower_score.tscn" id="8_1y5a2"]
 [ext_resource type="Script" uid="uid://bl45u5jy7i6sb" path="res://MainScreen/FlowerScoreboard.cs" id="8_72mna"]
+[ext_resource type="PackedScene" uid="uid://8oyacwf156lr" path="res://EnergyGauge/energy_gauge.tscn" id="10_72mna"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynihm"]
 size = Vector2(18, 498)
@@ -30,6 +31,7 @@ scale = Vector2(3.6, 3.6)
 texture = ExtResource("1_ynihm")
 
 [node name="DancingBee" parent="." instance=ExtResource("1_48woe")]
+z_index = 1
 position = Vector2(782, 472)
 
 [node name="MovementTrackerSystem" parent="." instance=ExtResource("2_y3dpw")]
@@ -107,5 +109,10 @@ position = Vector2(218, 0)
 
 [node name="FlowerScore5" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(291, 0)
+
+[node name="EnergyGauge" parent="." instance=ExtResource("10_72mna")]
+position = Vector2(849, 295)
+rotation = -1.56381
+scale = Vector2(1.045, 0.92)
 
 [editable path="FlowerSpawner"]
