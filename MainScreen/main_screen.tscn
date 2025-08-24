@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bbhtniwtgwcqn" path="res://Systems/movement_tracker_system.tscn" id="2_y3dpw"]
 [ext_resource type="PackedScene" uid="uid://b18rb1lya6qi4" path="res://MainScreen/map.tscn" id="4_rmsnq"]
 [ext_resource type="PackedScene" uid="uid://becpe5v7i0ym3" path="res://FlowerSpawner/flower_spawner.tscn" id="6_1cfp5"]
-[ext_resource type="PackedScene" uid="uid://bdttua6hwogek" path="res://MainScreen/title.tscn" id="6_6reht"]
+[ext_resource type="PackedScene" path="res://MainScreen/title.tscn" id="6_6reht"]
 [ext_resource type="Texture2D" uid="uid://bfgh38xkw5ej1" path="res://MainScreen/Title.PNG" id="7_6reht"]
 [ext_resource type="PackedScene" uid="uid://bakye64uw2e7x" path="res://FlowerScore/flower_score.tscn" id="8_1y5a2"]
 [ext_resource type="Script" uid="uid://bl45u5jy7i6sb" path="res://MainScreen/FlowerScoreboard.cs" id="8_72mna"]
