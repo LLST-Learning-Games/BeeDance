@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bbhtniwtgwcqn" path="res://Systems/movement_tracker_system.tscn" id="2_y3dpw"]
 [ext_resource type="PackedScene" uid="uid://b18rb1lya6qi4" path="res://MainScreen/map.tscn" id="4_rmsnq"]
 [ext_resource type="PackedScene" uid="uid://becpe5v7i0ym3" path="res://FlowerSpawner/flower_spawner.tscn" id="6_1cfp5"]
-[ext_resource type="PackedScene" uid="uid://bdttua6hwogek" path="res://MainScreen/title.tscn" id="6_6reht"]
+[ext_resource type="PackedScene" path="res://MainScreen/title.tscn" id="6_6reht"]
 [ext_resource type="Texture2D" uid="uid://bfgh38xkw5ej1" path="res://MainScreen/Title.PNG" id="7_6reht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynihm"]
@@ -34,37 +34,38 @@ position = Vector2(782, 472)
 
 [node name="Map" parent="." instance=ExtResource("4_rmsnq")]
 texture_filter = 1
+position = Vector2(243, 466)
+
+[node name="Walls" type="Node2D" parent="."]
 position = Vector2(478, 274)
 
-[node name="Walls" type="Node2D" parent="Map"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Map/Walls"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Walls/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
 position = Vector2(-269, -4)
 shape = SubResource("RectangleShape2D_ynihm")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Map/Walls"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Walls/StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
 position = Vector2(255, -117)
 shape = SubResource("RectangleShape2D_rmsnq")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Map/Walls"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Walls/StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3"]
 position = Vector2(-10, -248)
 shape = SubResource("RectangleShape2D_1cfp5")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="Map/Walls"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Walls/StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4"]
 position = Vector2(-64, 238)
 shape = SubResource("RectangleShape2D_6reht")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="Map/Walls"]
+[node name="StaticBody2D5" type="StaticBody2D" parent="Walls"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Walls/StaticBody2D5"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D5"]
 position = Vector2(224, 28)
 polygon = PackedVector2Array(-3, -5, -113, 165, -91, 203, 37.695, -5.235)
 
