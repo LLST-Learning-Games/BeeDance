@@ -4,6 +4,7 @@ using System;
 public partial class LevelManager : Node2D
 {
 	[Export] public FlowerScoreboard FlowerScoreboard;
+	[Export] public EnergyGauge _energyGauge;
 	[Export] public int ScoretoWin = 5;
 	[Export] public Node2D WinNode;
 	[Export] public Node2D LoseNode;
@@ -29,7 +30,7 @@ public partial class LevelManager : Node2D
 		{
 			WinNode.Visible = true;
 			gameOver = true;
-		} else if (false) //check timer here
+		} else if (Math.Abs(_energyGauge.GetTimeLeft() - (-1.0)) > 0.01f && _energyGauge.GetTimeLeft() <= 0) //check timer here
 		{
 			LoseNode.Visible = true;
 			gameOver = true;

@@ -7,16 +7,10 @@ public partial class BeeMouseInput : Node2D
 	[Export] private float _distanceRatio = 3f;
 	[Export] private float _maxInputDistance = 3f;
 	[Export] private float _maxDistance = 3f;
-	[Export] private LevelManager _levelManager;
 	private bool _isMouseButtonDown;
 	
 	public override void _Input(InputEvent @event)
 	{
-		if (_levelManager.GameOver)
-		{
-			return;
-		}
-		
 		if (@event is InputEventMouseButton mouseButtonEvent)
 		{
 			if (mouseButtonEvent.ButtonIndex == MouseButton.Left)
