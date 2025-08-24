@@ -118,15 +118,19 @@ position = Vector2(849, 295)
 rotation = -1.56381
 scale = Vector2(1.045, 0.92)
 
-[node name="WinNode" parent="." instance=ExtResource("11_y7gh2")]
-
 [node name="LoseNode" parent="." instance=ExtResource("12_mw5ky")]
+z_index = 5
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("FlowerScoreboard", "_energyGauge", "WinNode", "LoseNode") instance=ExtResource("13_k51hy")]
 FlowerScoreboard = NodePath("../FlowerScoreSection")
 _energyGauge = NodePath("../EnergyGauge")
 WinNode = NodePath("../WinNode")
 LoseNode = NodePath("../LoseNode")
+
+[node name="WinNode" parent="." instance=ExtResource("11_y7gh2")]
+z_index = 5
+position = Vector2(461, 188)
+scale = Vector2(0.5, 0.5)
 
 [editable path="DancingBee"]
 [editable path="FlowerSpawner"]
