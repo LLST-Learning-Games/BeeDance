@@ -26,8 +26,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EnergyGauge" type="Node2D"]
+[node name="EnergyGauge" type="Node2D" node_paths=PackedStringArray("_energyTimer", "_gaugeBase", "_gaugeStick")]
 script = ExtResource("1_jax2o")
+_energyTimer = NodePath("EnergyTimer")
+_gaugeBase = NodePath("GaugeBase")
+_gaugeStick = NodePath("GaugeBase/GaugeStick")
 
 [node name="GaugeBase" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -40,3 +43,7 @@ position = Vector2(12.6667, -9.33333)
 rotation = 0.968658
 scale = Vector2(2.12, 2.12)
 sprite_frames = SubResource("SpriteFrames_ih4et")
+
+[node name="EnergyTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
