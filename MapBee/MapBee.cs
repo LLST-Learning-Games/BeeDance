@@ -3,7 +3,7 @@ using System.Linq;
 using Godot;
 using Godot.Collections;
 
-public partial class MapBee : Node2D
+public partial class MapBee : RigidBody2D
 {
     [Export] private float _speed = 3f;
     
@@ -18,8 +18,12 @@ public partial class MapBee : Node2D
     {
         if (_path != null && _path.Count > 1)
         {
-            Position += _path[0].Normalized() * _path[0].DistanceTo(_path[1]) * _speed;
+            LinearVelocity = _path[0].Normalized() * _path[0].DistanceTo(_path[1]) * _speed;
             _path.RemoveAt(0);
+        }
+        else
+        {
+            LinearVelocity = Vector2.Zero;
         }
     }
 }

@@ -65,7 +65,7 @@ texture_filter = 1
 position = Vector2(-58, -58)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_lj6bm")
-frame_progress = 0.295197
+frame_progress = 0.978045
 
 [node name="BeeButt" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

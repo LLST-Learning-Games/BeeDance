@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cvc2hnbij3cho"]
+[gd_scene load_steps=19 format=3 uid="uid://cvc2hnbij3cho"]
 
 [ext_resource type="Script" uid="uid://cf52ba2h4n3xh" path="res://MapBee/MapBee.cs" id="1_wtg4u"]
 [ext_resource type="Texture2D" uid="uid://ce27cwcschyx3" path="res://MapBee/beeplane_2-Sheet.png" id="2_wtg4u"]
@@ -109,9 +109,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MapBee" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_wtg4u"]
+radius = 19.0263
+
+[node name="MapBee" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_wtg4u")
-_speed = 1.5
+_speed = 75.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -120,3 +125,6 @@ sprite_frames = SubResource("SpriteFrames_wtg4u")
 autoplay = "default"
 frame = 2
 frame_progress = 0.905074
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wtg4u")
