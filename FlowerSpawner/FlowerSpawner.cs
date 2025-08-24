@@ -17,9 +17,10 @@ public partial class FlowerSpawner : Node2D
 
     public void SpawnFlower()
     {
-        if (_flowerInstance == null)
+        //if (_flowerInstance == null)
         {
             _flowerInstance = _flowerPrefab.Instantiate<FlowerTarget>();
+            _flowerInstance.SetSpawner(this);
             AddChild(_flowerInstance);
         }
         _flowerInstance.Position = GetRandomLocationInSpawnArea();
