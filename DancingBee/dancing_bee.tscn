@@ -513,7 +513,7 @@ sprite_frames = SubResource("SpriteFrames_cm7eo")
 position = Vector2(2.28571, 11.7143)
 sprite_frames = SubResource("SpriteFrames_xil53")
 autoplay = "default"
-frame_progress = 0.460528
+frame_progress = 0.719998
 
 [node name="BeeMouseInput" type="Node2D" parent="." node_paths=PackedStringArray("_beeButt")]
 script = ExtResource("2_l82fe")

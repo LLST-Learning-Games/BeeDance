@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2epr4gbyl8lp"]
+[gd_scene load_steps=19 format=3 uid="uid://b2epr4gbyl8lp"]
 
 [ext_resource type="PackedScene" uid="uid://bahwck8bi5qhm" path="res://DancingBee/dancing_bee.tscn" id="1_48woe"]
 [ext_resource type="Texture2D" uid="uid://0qgh6ogq5tv3" path="res://MainScreen/BeeBackground_2.PNG" id="1_ynihm"]
@@ -10,9 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bakye64uw2e7x" path="res://FlowerScore/flower_score.tscn" id="8_1y5a2"]
 [ext_resource type="Script" uid="uid://bl45u5jy7i6sb" path="res://MainScreen/FlowerScoreboard.cs" id="8_72mna"]
 [ext_resource type="PackedScene" uid="uid://8oyacwf156lr" path="res://EnergyGauge/energy_gauge.tscn" id="10_72mna"]
-[ext_resource type="PackedScene" path="res://MainScreen/win_node.tscn" id="11_y7gh2"]
+[ext_resource type="PackedScene" uid="uid://ckpc3n8cgjn87" path="res://MainScreen/win_node.tscn" id="11_y7gh2"]
 [ext_resource type="PackedScene" path="res://MainScreen/lose_node.tscn" id="12_mw5ky"]
 [ext_resource type="PackedScene" path="res://MainScreen/level_manager.tscn" id="13_k51hy"]
+[ext_resource type="AudioStream" uid="uid://coystec7lnutx" path="res://Systems/8-bit-bees-chiptune-flight-of-the-bumblebee-dance-151720.mp3" id="14_mw5ky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynihm"]
 size = Vector2(18, 498)
@@ -36,9 +37,6 @@ texture = ExtResource("1_ynihm")
 [node name="DancingBee" parent="." instance=ExtResource("1_48woe")]
 z_index = 1
 position = Vector2(782, 472)
-
-[node name="BeeBody" parent="DancingBee" index="2"]
-frame = 0
 
 [node name="MovementTrackerSystem" parent="." instance=ExtResource("2_y3dpw")]
 
@@ -134,6 +132,12 @@ LoseNode = NodePath("../LoseNode")
 z_index = 5
 position = Vector2(461, 188)
 scale = Vector2(0.5, 0.5)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("14_mw5ky")
+autoplay = true
 
 [editable path="DancingBee"]
 [editable path="FlowerSpawner"]
