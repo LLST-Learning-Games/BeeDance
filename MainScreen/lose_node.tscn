@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://deu0iqnjmpucx"]
+
+[ext_resource type="Texture2D" uid="uid://2fjpr4ciqnk3" path="res://FlowerTarget/Flower_Closed.PNG" id="1_31j7s"]
+
+[node name="LoseNode" type="Node2D"]
+
+[node name="Lose" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 446.0
+offset_top = 116.0
+offset_right = 837.0
+offset_bottom = 567.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Lose"]
+position = Vector2(154.5, 194)
+scale = Vector2(10.6563, 13.125)
+texture = ExtResource("1_31j7s")

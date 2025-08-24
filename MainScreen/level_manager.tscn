@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2vulrrvdkbok"]
+
+[ext_resource type="Script" uid="uid://1ljt7sg1lc0f" path="res://MainScreen/LevelManager.cs" id="1_vi14u"]
+
+[node name="LevelManager" type="Node2D" node_paths=PackedStringArray("FlowerScoreboard", "WinNode", "LoseNode")]
+script = ExtResource("1_vi14u")
+FlowerScoreboard = NodePath("")
+WinNode = NodePath("")
+LoseNode = NodePath("")
