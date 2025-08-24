@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class FlowerSpawner : Node2D
 {
@@ -10,7 +9,7 @@ public partial class FlowerSpawner : Node2D
 	
 	private FlowerTarget _flowerInstance;
 	
-	private Random _rand = new Random();
+	private RandomNumberGenerator _rand = new RandomNumberGenerator();
 
 	public override void _Ready()
 	{
@@ -39,21 +38,30 @@ public partial class FlowerSpawner : Node2D
 
 	private Vector2 GetRandomLocationInSpawnArea()
 	{
-		// Assuming the Area2D has a CollisionShape2D child
-		var collisionShape = _spawnArea.GetNode<CollisionShape2D>("CollisionShape2D");
-		if (collisionShape == null || collisionShape.Shape == null)
+		var collisionShape = _spawnArea.GetNode<CollisionPolygon2D>("CollisionPolygon2D");
+		if (collisionShape == null)
 		{
-			return Vector2.Zero; // fallback
+			return Vector2.Zero;
 		}
 
-		if (collisionShape.Shape is RectangleShape2D rect)
+		Vector2[] points = collisionShape.Polygon;
+		var indices = Geometry2D.TriangulatePolygon(points);
+		int triIndex = _rand.RandiRange(0, indices.Length / 3 - 1) * 3;
+
+		Vector2 a = points[indices[triIndex]];
+		Vector2 b = points[indices[triIndex + 1]];
+		Vector2 c = points[indices[triIndex + 2]];
+
+		// Using barycentric coordinates (uniform distribution inside a triangle)
+		float u = _rand.Randf();
+		float v = _rand.Randf();
+
+		if (u + v > 1f)
 		{
-			float x = (float)(_rand.NextDouble() * rect.Size.X - rect.Size.X / 2);
-			float y = (float)(_rand.NextDouble() * rect.Size.Y - rect.Size.Y / 2);
-			return new Vector2(x, y);
+			u = 1f - u;
+			v = 1f - v;
 		}
-		
-		GD.PrintErr("Unsupported shape for random point sampling");
-		return Vector2.Zero;
+
+		return a + u * (b - a) + v * (c - a);
 	}
 }

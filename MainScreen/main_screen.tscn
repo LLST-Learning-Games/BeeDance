@@ -75,6 +75,9 @@ polygon = PackedVector2Array(-3, -5, -113, 165, -91, 203, 37.695, -5.235)
 position = Vector2(469, 266)
 _flowerScoreboard = NodePath("../FlowerScoreSection")
 
+[node name="CollisionPolygon2D" parent="FlowerSpawner/Area2D" index="0"]
+polygon = PackedVector2Array(246, 2, 97, 231, -145, 229, -165, 146, -244, 118, -244, -223, 246, -223)
+
 [node name="Title" parent="." instance=ExtResource("6_6reht")]
 
 [node name="Sprite2D2" type="Sprite2D" parent="Title"]
@@ -104,3 +107,5 @@ position = Vector2(218, 0)
 
 [node name="FlowerScore5" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(291, 0)
+
+[editable path="FlowerSpawner"]
