@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://g2u41fvfn0wo"]
+
+[ext_resource type="Texture2D" path="res://Systems/Timer/TimerBaseBen.png" id="1_qtl0s"]
+[ext_resource type="Texture2D" path="res://Systems/Timer/TimerStickBen.png" id="2_8km6e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8km6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qtl0s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jn5gf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8km6e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TimerBase" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8km6e")
+
+[node name="TimerNeedle" type="AnimatedSprite2D" parent="."]
+position = Vector2(40, 4)
+sprite_frames = SubResource("SpriteFrames_jn5gf")
