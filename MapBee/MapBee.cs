@@ -25,6 +25,7 @@ public partial class MapBee : RigidBody2D
 		else
 		{
 			LinearVelocity = Vector2.Zero;
+			QueueFree();
 		}
 	}
 }

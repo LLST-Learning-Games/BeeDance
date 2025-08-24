@@ -22,15 +22,12 @@ public partial class Map : Node2D
 
 	public void SpawnBeeAndMove()
 	{
-		if (_beeInstance == null)
-		{
-			_beeInstance = _beePrefab.Instantiate() as MapBee;
-			AddChild(_beeInstance);
-			GD.Print("Spawning bee");
-			_beeInstance.Position = Vector2.Zero;
-		}
+		var bee = _beePrefab.Instantiate() as MapBee;
+		AddChild(bee);
+		GD.Print("Spawning bee");
+		bee.Position = Vector2.Zero;
 		
-		_beeInstance.SetPath(MovementTrackerSystem.Instance.GetMovementSnapshots());
+		bee.SetPath(MovementTrackerSystem.Instance.GetMovementSnapshots());
 		MovementTrackerSystem.Instance.ClearMovementSnapshots();
 	}
 }
