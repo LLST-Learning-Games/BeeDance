@@ -14,4 +14,9 @@ public partial class BeeBodyAnimatorController : AnimatedSprite2D
         // forgive me for my sins
         Play(SpriteFrames.GetAnimationNames()[randIndex]);
     }
+
+    public void OnAnimationFinished()
+    {
+        Play("default");
+    }
 }
