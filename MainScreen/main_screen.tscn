@@ -123,16 +123,27 @@ z_index = 5
 position = Vector2(461, 188)
 scale = Vector2(0.5, 0.5)
 
+[node name="Sprite2D" parent="WinNode/Win" index="0"]
+autoplay = "default"
+frame_progress = 0.55139
+
 [node name="LoseNode" parent="." instance=ExtResource("12_mw5ky")]
 z_index = 5
 position = Vector2(460, 180)
 scale = Vector2(0.5, 0.5)
 
+[node name="Sprite2D" parent="LoseNode/Lose" index="0"]
+autoplay = "default"
+frame_progress = 0.386123
+
 [node name="LevelManager" parent="." node_paths=PackedStringArray("FlowerScoreboard", "_energyGauge", "WinNode", "LoseNode") instance=ExtResource("13_k51hy")]
 FlowerScoreboard = NodePath("../FlowerScoreSection")
 _energyGauge = NodePath("../EnergyGauge")
+ScoretoWin = -739
 WinNode = NodePath("../WinNode")
 LoseNode = NodePath("../LoseNode")
 
 [editable path="DancingBee"]
 [editable path="FlowerSpawner"]
+[editable path="WinNode"]
+[editable path="LoseNode"]

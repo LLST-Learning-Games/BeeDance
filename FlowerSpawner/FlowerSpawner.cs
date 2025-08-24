@@ -33,7 +33,8 @@ public partial class FlowerSpawner : Node2D
 	{
 		((FlowerScoreboard)_flowerScoreboard).AddScore();
 		_flowerInstance = null;
-		SpawnFlower();
+		
+		CallDeferred(nameof(SpawnFlower));
 	}
 
 	private Vector2 GetRandomLocationInSpawnArea()

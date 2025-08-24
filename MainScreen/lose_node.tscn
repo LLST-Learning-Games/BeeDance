@@ -45,4 +45,4 @@ offset_bottom = 567.0
 position = Vector2(154.5, 194)
 scale = Vector2(10.6563, 13.125)
 sprite_frames = SubResource("SpriteFrames_1kc2j")
-frame_progress = 0.0104053
+frame_progress = 0.0161543
