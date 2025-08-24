@@ -1,18 +1,55 @@
-[gd_scene load_steps=10 format=3 uid="uid://bahwck8bi5qhm"]
+[gd_scene load_steps=20 format=3 uid="uid://bahwck8bi5qhm"]
 
 [ext_resource type="Texture2D" uid="uid://dd03we32w5i3d" path="res://DancingBee/NavigationGauge.PNG" id="1_npsbh"]
 [ext_resource type="Script" uid="uid://m2vfk6rc6iy3" path="res://DancingBee/BeeMouseInput.cs" id="2_l82fe"]
 [ext_resource type="Texture2D" uid="uid://bu0dicdk0tnsm" path="res://DancingBee/CalibrateBee.PNG" id="2_lj6bm"]
-[ext_resource type="Texture2D" uid="uid://dsys6pkrxqnqb" path="res://DancingBee/Marshall_Blink-Sheet.png" id="3_lj6bm"]
+[ext_resource type="Texture2D" uid="uid://brihtfjr0mien" path="res://DancingBee/Marshall_emote-Sheet.png" id="3_lj6bm"]
+[ext_resource type="Script" uid="uid://bwa2hs20l66x8" path="res://DancingBee/BeeBodyAnimatorController.cs" id="4_cm7eo"]
 [ext_resource type="Texture2D" uid="uid://65d2sj238m57" path="res://DancingBee/Marshall_ASSet.png" id="4_lj6bm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cm7eo"]
 atlas = ExtResource("3_lj6bm")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(48, 0, 48, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cuvt8"]
 atlas = ExtResource("3_lj6bm")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(0, 0, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xij0i"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(48, 0, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo0gf"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(96, 0, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_las1f"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(144, 0, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wujk8"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(240, 0, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70it8"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(288, 0, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbj7g"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(336, 0, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj6bm"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(384, 0, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hatoi"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(432, 0, 48, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3mop"]
+atlas = ExtResource("3_lj6bm")
+region = Rect2(480, 0, 48, 37)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lj6bm"]
 animations = [{
@@ -34,6 +71,66 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xij0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo0gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_las1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo0gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xij0i")
+}],
+"loop": true,
+"name": &"sassy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wujk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70it8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbj7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70it8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wujk8")
+}],
+"loop": true,
+"name": &"smug",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj6bm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hatoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3mop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hatoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj6bm")
+}],
+"loop": true,
+"name": &"wowza",
 "speed": 5.0
 }]
 
@@ -62,10 +159,17 @@ texture = ExtResource("2_lj6bm")
 
 [node name="BeeBody" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-58, -58)
+position = Vector2(-76, -77)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_lj6bm")
-frame_progress = 0.978045
+animation = &"smug"
+autoplay = "default"
+frame = 1
+frame_progress = 0.59932
+script = ExtResource("4_cm7eo")
+
+[node name="Timer" type="Timer" parent="BeeBody"]
+autostart = true
 
 [node name="BeeButt" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -79,3 +183,5 @@ _beeButt = NodePath("../BeeButt")
 _distanceRatio = 10.0
 _maxInputDistance = 800.0
 _maxDistance = 20.0
+
+[connection signal="timeout" from="BeeBody/Timer" to="BeeBody" method="PlayRandomAnimation"]
