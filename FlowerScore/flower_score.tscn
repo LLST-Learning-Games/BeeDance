@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bakye64uw2e7x"]
+
+[ext_resource type="Texture2D" uid="uid://2fjpr4ciqnk3" path="res://FlowerTarget/Flower_Closed.PNG" id="1_f0dql"]
+[ext_resource type="Script" uid="uid://hw7s1f36ogry" path="res://FlowerScore/FlowerScore.cs" id="1_gq6wd"]
+[ext_resource type="Texture2D" uid="uid://csvfefvji2k4y" path="res://FlowerTarget/Flower_Open.PNG" id="2_lx1bj"]
+
+[node name="FlowerScore" type="Node2D" node_paths=PackedStringArray("_flowerSprite2D")]
+script = ExtResource("1_gq6wd")
+_flowerSprite2D = NodePath("FlowerImage")
+_flowerBloomed = ExtResource("2_lx1bj")
+
+[node name="FlowerImage" type="Sprite2D" parent="."]
+position = Vector2(39, 36)
+scale = Vector2(2.84466, 3)
+texture = ExtResource("1_f0dql")

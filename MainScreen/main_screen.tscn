@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2epr4gbyl8lp"]
+[gd_scene load_steps=14 format=3 uid="uid://b2epr4gbyl8lp"]
 
 [ext_resource type="PackedScene" uid="uid://bahwck8bi5qhm" path="res://DancingBee/dancing_bee.tscn" id="1_48woe"]
 [ext_resource type="Texture2D" uid="uid://0qgh6ogq5tv3" path="res://MainScreen/BeeBackground_2.PNG" id="1_ynihm"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://becpe5v7i0ym3" path="res://FlowerSpawner/flower_spawner.tscn" id="6_1cfp5"]
 [ext_resource type="PackedScene" uid="uid://bdttua6hwogek" path="res://MainScreen/title.tscn" id="6_6reht"]
 [ext_resource type="Texture2D" uid="uid://bfgh38xkw5ej1" path="res://MainScreen/Title.PNG" id="7_6reht"]
+[ext_resource type="PackedScene" uid="uid://bakye64uw2e7x" path="res://FlowerScore/flower_score.tscn" id="8_1y5a2"]
+[ext_resource type="Script" uid="uid://bl45u5jy7i6sb" path="res://MainScreen/FlowerScoreboard.cs" id="8_72mna"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynihm"]
 size = Vector2(18, 498)
@@ -68,8 +70,9 @@ shape = SubResource("RectangleShape2D_6reht")
 position = Vector2(224, 28)
 polygon = PackedVector2Array(-3, -5, -113, 165, -91, 203, 37.695, -5.235)
 
-[node name="FlowerSpawner" parent="." instance=ExtResource("6_1cfp5")]
+[node name="FlowerSpawner" parent="." node_paths=PackedStringArray("_flowerScoreboard") instance=ExtResource("6_1cfp5")]
 position = Vector2(469, 266)
+_flowerScoreboard = NodePath("../FlowerScoreSection")
 
 [node name="Title" parent="." instance=ExtResource("6_6reht")]
 
@@ -81,3 +84,22 @@ offset_top = 18.0
 offset_right = 966.0
 offset_bottom = 132.0
 texture = ExtResource("7_6reht")
+
+[node name="FlowerScoreSection" type="Node2D" parent="."]
+position = Vector2(206, 546)
+script = ExtResource("8_72mna")
+
+[node name="FlowerScore" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
+position = Vector2(1, 0)
+
+[node name="FlowerScore2" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
+position = Vector2(78, 0)
+
+[node name="FlowerScore3" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
+position = Vector2(151, 0)
+
+[node name="FlowerScore4" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
+position = Vector2(218, 0)
+
+[node name="FlowerScore5" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
+position = Vector2(291, 0)
