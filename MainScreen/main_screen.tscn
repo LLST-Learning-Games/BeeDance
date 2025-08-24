@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2epr4gbyl8lp"]
+[gd_scene load_steps=10 format=3 uid="uid://b2epr4gbyl8lp"]
 
 [ext_resource type="PackedScene" uid="uid://bahwck8bi5qhm" path="res://DancingBee/dancing_bee.tscn" id="1_48woe"]
 [ext_resource type="Texture2D" uid="uid://0qgh6ogq5tv3" path="res://MainScreen/BeeBackground_2.PNG" id="1_ynihm"]
 [ext_resource type="PackedScene" uid="uid://bbhtniwtgwcqn" path="res://Systems/movement_tracker_system.tscn" id="2_y3dpw"]
 [ext_resource type="PackedScene" uid="uid://b18rb1lya6qi4" path="res://MainScreen/map.tscn" id="4_rmsnq"]
+[ext_resource type="PackedScene" uid="uid://becpe5v7i0ym3" path="res://FlowerSpawner/flower_spawner.tscn" id="6_1cfp5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynihm"]
 size = Vector2(18, 498)
@@ -63,4 +64,7 @@ shape = SubResource("RectangleShape2D_6reht")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Walls/StaticBody2D5"]
 position = Vector2(224, 28)
-polygon = PackedVector2Array(0, -6.08, -113, 165, -91, 203, 37.695, -5.235)
+polygon = PackedVector2Array(-3, -5, -113, 165, -91, 203, 37.695, -5.235)
+
+[node name="FlowerSpawner" parent="." instance=ExtResource("6_1cfp5")]
+position = Vector2(469, 266)

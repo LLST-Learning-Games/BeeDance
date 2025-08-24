@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://be8hm24nc3eca"]
+
+[ext_resource type="Texture2D" uid="uid://csvfefvji2k4y" path="res://FlowerTarget/Flower_Open.PNG" id="1_aos7r"]
+[ext_resource type="Script" uid="uid://cekf3g0gp1wm4" path="res://FlowerTarget/FlowerTarget.cs" id="1_ay78h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1cfp5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aos7r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmsnq"]
+radius = 20.0
+
+[node name="FlowerTarget" type="Node2D"]
+script = ExtResource("1_ay78h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_1cfp5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rmsnq")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]
