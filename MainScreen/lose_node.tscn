@@ -1,6 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://deu0iqnjmpucx"]
+[gd_scene load_steps=6 format=3 uid="uid://deu0iqnjmpucx"]
 
-[ext_resource type="Texture2D" uid="uid://2fjpr4ciqnk3" path="res://FlowerTarget/Flower_Closed.PNG" id="1_31j7s"]
+[ext_resource type="Texture2D" uid="uid://cjlfyxvlhevc4" path="res://MainScreen/Marshall_Loss.PNG" id="1_31j7s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dc40"]
+atlas = ExtResource("1_31j7s")
+region = Rect2(0, 0, 189, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg63x"]
+atlas = ExtResource("1_31j7s")
+region = Rect2(189, 0, 189, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5scm5"]
+atlas = ExtResource("1_31j7s")
+region = Rect2(378, 0, 189, 103)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kc2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dc40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg63x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5scm5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="LoseNode" type="Node2D"]
 
@@ -12,7 +41,8 @@ offset_top = 116.0
 offset_right = 837.0
 offset_bottom = 567.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Lose"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Lose"]
 position = Vector2(154.5, 194)
 scale = Vector2(10.6563, 13.125)
-texture = ExtResource("1_31j7s")
+sprite_frames = SubResource("SpriteFrames_1kc2j")
+frame_progress = 0.0161543
