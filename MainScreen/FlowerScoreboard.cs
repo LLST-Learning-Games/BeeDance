@@ -6,6 +6,7 @@ using System.Linq;
 public partial class FlowerScoreboard : Node2D
 {
 	private int _score = 0;
+	public int Score => _score;
 	private List<FlowerScore> flowerScore = new List<FlowerScore>();
 	
 	public override void _Ready()

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckpc3n8cgjn87"]
+
+[ext_resource type="Texture2D" uid="uid://csvfefvji2k4y" path="res://FlowerTarget/Flower_Open.PNG" id="1_t4hi4"]
+
+[node name="WinNode" type="Node2D"]
+
+[node name="Win" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 446.0
+offset_top = 116.0
+offset_right = 837.0
+offset_bottom = 567.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Win"]
+position = Vector2(154.5, 194)
+scale = Vector2(10.6563, 13.125)
+texture = ExtResource("1_t4hi4")
