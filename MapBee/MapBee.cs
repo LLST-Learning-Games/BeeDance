@@ -19,6 +19,7 @@ public partial class MapBee : RigidBody2D
         if (_path != null && _path.Count > 1)
         {
             LinearVelocity = _path[0].Normalized() * _path[0].DistanceTo(_path[1]) * _speed;
+            Rotation = _path[0].Angle() + 90f;
             _path.RemoveAt(0);
         }
         else
