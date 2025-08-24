@@ -6,9 +6,11 @@ using Godot.Collections;
 public partial class MapBee : RigidBody2D
 {
 	[Export] private float _speed = 3f;
+	[Export] private CollisionShape2D collisionShape;
 	
 	private List<Vector2> _path;
 	private Vector2 origin;
+	private bool flowerReached = false;
 
 	public override void _Ready()
 	{
@@ -22,8 +24,23 @@ public partial class MapBee : RigidBody2D
 		_path = path.ToList();
 	}
 
+	public void MarkFlowerReached()
+	{
+		CallDeferred(nameof(DisablePhysics));
+		flowerReached = true;
+		LinearVelocity = Vector2.Zero;
+	}
+
+	public void DisablePhysics()
+	{
+		Freeze = true;
+		FreezeMode = FreezeModeEnum.Kinematic;
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
+		if (flowerReached) return;
+		
 		if (_path != null && _path.Count > 1)
 		{
 			LinearVelocity = _path[0].Normalized() * _path[0].DistanceTo(_path[1]) * _speed;
@@ -34,6 +51,8 @@ public partial class MapBee : RigidBody2D
 		{
 			if (origin.DistanceTo(Position) > 10)
 			{
+				collisionShape.Disabled = true;
+				
 				var direction = (origin - Position);
 				LinearVelocity = (origin - Position) * _speed / 20;
 				Rotation = direction.Angle() + 90f;

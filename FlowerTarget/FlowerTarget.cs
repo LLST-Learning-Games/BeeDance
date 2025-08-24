@@ -11,7 +11,8 @@ public partial class FlowerTarget : Node2D
 		if (other is MapBee)
 		{
 			OnScore?.Invoke();
-			
+			var mapBee = other as MapBee;
+			mapBee.MarkFlowerReached();
 			HandleFlowerDespawn();
 		}
 	}
