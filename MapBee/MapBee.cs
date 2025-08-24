@@ -8,8 +8,16 @@ public partial class MapBee : RigidBody2D
 	[Export] private float _speed = 3f;
 	
 	private List<Vector2> _path;
-	
-	public void SetPath(Array<Vector2> path)
+	private Vector2 origin;
+
+	public override void _Ready()
+	{
+		base._Ready();
+		
+		origin = Position;
+	}
+
+	public void SetPath(List<Vector2> path)
 	{
 		_path = path.ToList();
 	}
@@ -24,8 +32,17 @@ public partial class MapBee : RigidBody2D
 		}
 		else
 		{
-			LinearVelocity = Vector2.Zero;
-			QueueFree();
+			if (origin.DistanceTo(Position) > 10)
+			{
+				var direction = (origin - Position);
+				LinearVelocity = (origin - Position) * _speed / 20;
+				Rotation = direction.Angle() + 90f;
+			}
+			else
+			{
+				LinearVelocity = Vector2.Zero;
+				QueueFree();
+			}
 		}
 	}
 }

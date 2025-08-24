@@ -1,12 +1,13 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class Map : Node2D
 {
 	[Export] private PackedScene _beePrefab;
 	private MapBee _beeInstance;
 	public static Map Instance { get; private set; }
-	
+	private float _maxMovement = 10;
 	
 	public override void _Ready()
 	{
@@ -26,8 +27,10 @@ public partial class Map : Node2D
 		AddChild(bee);
 		GD.Print("Spawning bee");
 		bee.Position = Vector2.Zero;
+
+		var movementSnapshots = MovementTrackerSystem.Instance.GetMovementSnapshots().ToList();
 		
-		bee.SetPath(MovementTrackerSystem.Instance.GetMovementSnapshots());
+		bee.SetPath(movementSnapshots);
 		MovementTrackerSystem.Instance.ClearMovementSnapshots();
 	}
 }
