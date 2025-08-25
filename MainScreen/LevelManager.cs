@@ -30,7 +30,7 @@ public partial class LevelManager : Node2D
 		{
 			WinNode.Visible = true;
 			gameOver = true;
-		} else if (Math.Abs(_energyGauge.GetTimeLeft() - (-1.0)) > 0.01f && _energyGauge.GetTimeLeft() <= 0) //check timer here
+		} else if (_energyGauge.GetTimeLeft() == 0) //check timer here
 		{
 			LoseNode.Visible = true;
 			gameOver = true;
