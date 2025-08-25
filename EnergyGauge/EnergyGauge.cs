@@ -29,7 +29,6 @@ public partial class EnergyGauge : Node2D
 		_energyTimer.WaitTime = DurationOfGame;
 		_energyTimer.Start();
 		previousRotation = GetGaugeRotationRange();
-		_gaugeBase.Frame = 0;
 	}
 
 	public override void _Process(double delta)
@@ -42,9 +41,9 @@ public partial class EnergyGauge : Node2D
 		previousRotation = targeRotation;
 		//GD.Print("EnergyWait: " + _energyTimer.WaitTime.ToString() + "GameDuration: " + DurationOfGame.ToString());
 		//GD.Print("PercentRemaining: " + GetPercentRemainingGauge().ToString() + "PercentToStartFlashing: " + PercentToStartFlashing.ToString());
-		if (GetPercentRemainingGauge() < PercentToStartFlashing)
+		if (GetPercentRemainingGauge() < PercentToStartFlashing && !_gaugeBase.IsPlaying())
 		{
-			_gaugeBase.Frame = 1;
+			_gaugeBase.Play();
 		}
 
 	}

@@ -46,8 +46,6 @@ texture_filter = 1
 rotation = -1.56381
 scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_fnj87")
-frame = 1
-frame_progress = 0.569065
 
 [node name="GaugeStickRotator" type="Node2D" parent="GaugeBase"]
 rotation = 1.66679
