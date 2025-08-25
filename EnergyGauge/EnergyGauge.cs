@@ -28,7 +28,7 @@ public partial class EnergyGauge : Node2D
 		_energyTimer.Timeout += OnEnergyDepleted;
 		_energyTimer.WaitTime = DurationOfGame;
 		_energyTimer.Start();
-		previousRotation = GaugeFullPoint;
+		previousRotation = GetGaugeRotationRange();
 		_gaugeBase.Frame = 0;
 	}
 
