@@ -11,9 +11,9 @@
 [ext_resource type="Script" uid="uid://bl45u5jy7i6sb" path="res://MainScreen/FlowerScoreboard.cs" id="8_72mna"]
 [ext_resource type="PackedScene" uid="uid://8oyacwf156lr" path="res://EnergyGauge/energy_gauge.tscn" id="10_72mna"]
 [ext_resource type="PackedScene" uid="uid://ckpc3n8cgjn87" path="res://MainScreen/win_node.tscn" id="11_y7gh2"]
-[ext_resource type="PackedScene" path="res://MainScreen/lose_node.tscn" id="12_mw5ky"]
+[ext_resource type="PackedScene" uid="uid://deu0iqnjmpucx" path="res://MainScreen/lose_node.tscn" id="12_mw5ky"]
 [ext_resource type="PackedScene" path="res://MainScreen/level_manager.tscn" id="13_k51hy"]
-[ext_resource type="AudioStream" uid="uid://coystec7lnutx" path="res://Systems/8-bit-bees-chiptune-flight-of-the-bumblebee-dance-151720.mp3" id="14_mw5ky"]
+[ext_resource type="PackedScene" uid="uid://622u8tcgdclt" path="res://Systems/audio.tscn" id="14_mw5ky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynihm"]
 size = Vector2(18, 498)
@@ -143,11 +143,7 @@ _energyGauge = NodePath("../EnergyGauge")
 WinNode = NodePath("../WinNode")
 LoseNode = NodePath("../LoseNode")
 
-[node name="Audio" type="Node" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("14_mw5ky")
-autoplay = true
+[node name="Audio" parent="." instance=ExtResource("14_mw5ky")]
 
 [editable path="DancingBee"]
 [editable path="FlowerSpawner"]
