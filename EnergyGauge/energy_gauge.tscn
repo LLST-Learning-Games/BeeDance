@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://8oyacwf156lr"]
+[gd_scene load_steps=7 format=3 uid="uid://8oyacwf156lr"]
 
 [ext_resource type="Script" uid="uid://dtkxu5oy7ot5w" path="res://EnergyGauge/EnergyGauge.cs" id="1_jax2o"]
 [ext_resource type="Texture2D" uid="uid://c6hsn1i3oli6p" path="res://EnergyGauge/NavigationGauge.PNG" id="2_2q2n8"]
+[ext_resource type="Texture2D" uid="uid://begdxm1ooyr7b" path="res://EnergyGauge/NavigationGuage_Red.PNG" id="3_ih4et"]
 [ext_resource type="Texture2D" uid="uid://bbliojnin3ms4" path="res://EnergyGauge/GasStick.png" id="3_nvt3q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fnj87"]
@@ -9,10 +10,13 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_2q2n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ih4et")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ih4et"]
@@ -26,18 +30,29 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EnergyGauge" type="Node2D" node_paths=PackedStringArray("_energyTimer", "_gaugeBase", "_gaugeStick")]
+[node name="EnergyGauge" type="Node2D" node_paths=PackedStringArray("_energyTimer", "_gaugeBase", "_gaugeStickRotator")]
 script = ExtResource("1_jax2o")
 _energyTimer = NodePath("EnergyTimer")
 _gaugeBase = NodePath("GaugeBase")
-_gaugeStick = NodePath("GaugeBase/GaugeStick")
+_gaugeStickRotator = NodePath("GaugeBase/GaugeStickRotator")
+GaugeEmptyPoint = -55.0
+GaugeFullPoint = 144.0
+DurationOfGame = 120.0
+PercentToStartFlashing = 0.1
+AnimationSpeed = 1.0
 
 [node name="GaugeBase" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+rotation = -1.56381
 scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_fnj87")
+frame = 1
+frame_progress = 0.569065
 
-[node name="GaugeStick" type="AnimatedSprite2D" parent="GaugeBase"]
+[node name="GaugeStickRotator" type="Node2D" parent="GaugeBase"]
+rotation = 1.66679
+
+[node name="GaugeStick" type="AnimatedSprite2D" parent="GaugeBase/GaugeStickRotator"]
 texture_filter = 1
 position = Vector2(12.6667, -9.33333)
 rotation = 0.968658
@@ -45,5 +60,4 @@ scale = Vector2(2.12, 2.12)
 sprite_frames = SubResource("SpriteFrames_ih4et")
 
 [node name="EnergyTimer" type="Timer" parent="."]
-wait_time = 20.0
-autostart = true
+wait_time = 120.0
