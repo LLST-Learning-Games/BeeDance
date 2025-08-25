@@ -74,6 +74,6 @@ public partial class EnergyGauge : Node2D
 
 	public void OnEnergyDepleted()
 	{
-		//call something to end the game here? Or change what we bind to the signal in the _Ready() above
+		_energyTimer.Stop();
 	}
 }
