@@ -38,7 +38,7 @@ _gaugeStickRotator = NodePath("GaugeBase/GaugeStickRotator")
 GaugeEmptyPoint = -55.0
 GaugeFullPoint = 144.0
 DurationOfGame = 120.0
-PercentToStartFlashing = 0.1
+PercentToStartFlashing = 0.15
 AnimationSpeed = 1.0
 
 [node name="GaugeBase" type="AnimatedSprite2D" parent="."]
