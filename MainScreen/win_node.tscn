@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckpc3n8cgjn87"]
+[gd_scene load_steps=6 format=3 uid="uid://ckpc3n8cgjn87"]
 
+[ext_resource type="Texture2D" uid="uid://d4nybp5t6ugky" path="res://fadebloom.png" id="1_ktawt"]
 [ext_resource type="Texture2D" uid="uid://bgu6hnh2jd6tq" path="res://MainScreen/Win screen_marshall.PNG" id="1_t4hi4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4hi4"]
@@ -33,6 +34,12 @@ offset_left = 446.0
 offset_top = 116.0
 offset_right = 837.0
 offset_bottom = 567.0
+
+[node name="FadeBloom" type="Sprite2D" parent="Win"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-149, 221)
+scale = Vector2(9.04, 9.04)
+texture = ExtResource("1_ktawt")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Win"]
 position = Vector2(154.5, 194)

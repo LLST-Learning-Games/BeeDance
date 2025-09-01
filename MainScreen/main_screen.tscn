@@ -120,20 +120,20 @@ position = Vector2(849, 295)
 [node name="WinNode" parent="." instance=ExtResource("11_y7gh2")]
 visible = false
 z_index = 5
-position = Vector2(461, 188)
-scale = Vector2(0.4, 0.4)
+position = Vector2(426, 177)
+scale = Vector2(0.485, 0.485)
 
-[node name="Sprite2D" parent="WinNode/Win" index="0"]
+[node name="Sprite2D" parent="WinNode/Win" index="1"]
 autoplay = "default"
 frame_progress = 0.55139
 
 [node name="LoseNode" parent="." instance=ExtResource("12_mw5ky")]
 visible = false
 z_index = 5
-position = Vector2(460, 180)
-scale = Vector2(0.4, 0.4)
+position = Vector2(437, 164)
+scale = Vector2(0.485, 0.485)
 
-[node name="Sprite2D" parent="LoseNode/Lose" index="0"]
+[node name="Sprite2D" parent="LoseNode/Lose" index="1"]
 autoplay = "default"
 frame_progress = 0.386123
 

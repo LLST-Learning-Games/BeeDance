@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://deu0iqnjmpucx"]
+[gd_scene load_steps=7 format=3 uid="uid://deu0iqnjmpucx"]
 
+[ext_resource type="Texture2D" uid="uid://d4nybp5t6ugky" path="res://fadebloom.png" id="1_2dc40"]
 [ext_resource type="Texture2D" uid="uid://cjlfyxvlhevc4" path="res://MainScreen/Marshall_Loss.PNG" id="1_31j7s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dc40"]
@@ -40,6 +41,12 @@ offset_left = 446.0
 offset_top = 116.0
 offset_right = 837.0
 offset_bottom = 567.0
+
+[node name="FadeBloom" type="Sprite2D" parent="Lose"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-149, 221)
+scale = Vector2(8.635, 8.635)
+texture = ExtResource("1_2dc40")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Lose"]
 position = Vector2(154.5, 194)
