@@ -14,9 +14,21 @@ public partial class MapBee : RigidBody2D
 
 	public override void _Ready()
 	{
-		base._Ready();
-		
 		origin = Position;
+		LevelManager.Instance.OnGameOverReportWin += OnGameOver;
+		LevelManager.Instance.OnGameStateReset += DestroyMe;
+	}
+
+	private void DestroyMe()
+	{
+		LevelManager.Instance.OnGameOverReportWin -= OnGameOver;
+		LevelManager.Instance.OnGameStateReset -= DestroyMe;
+		QueueFree();
+	}
+
+	private void OnGameOver(bool winLose)
+	{
+		
 	}
 
 	public void SetPath(List<Vector2> path)
@@ -60,7 +72,7 @@ public partial class MapBee : RigidBody2D
 			else
 			{
 				LinearVelocity = Vector2.Zero;
-				QueueFree();
+				DestroyMe();
 			}
 		}
 	}

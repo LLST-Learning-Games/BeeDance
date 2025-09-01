@@ -16,8 +16,19 @@ public partial class FlowerScoreboard : Node2D
 		{
 			flowerScore.Add(child as FlowerScore);
 		}
+
+		LevelManager.Instance.OnGameStateReset += ResetFlowerScore;
 	}
-	
+
+	private void ResetFlowerScore()
+	{
+		_score = 0;
+		foreach (var flowerScore in flowerScore)
+		{
+			flowerScore.Reset();
+		}
+	}
+
 	public void AddScore()
 	{
 		GD.Print("AddScore");

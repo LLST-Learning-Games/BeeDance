@@ -24,12 +24,32 @@ public partial class EnergyGauge : Node2D
 		}
 
 		Instance = this;
-		_gaugeStickRotator.RotationDegrees = GaugeFullPoint;
+		RestartTimer();
+		BindListeners();
+	}
+
+	private void BindListeners()
+	{
+		LevelManager.Instance.OnGameOverReportWin += PauseTimer;
+		LevelManager.Instance.OnGameStateReset += RestartTimer;
 		_energyTimer.Timeout += OnEnergyDepleted;
+	}
+
+	private void RestartTimer()
+	{
+		_gaugeStickRotator.RotationDegrees = GaugeFullPoint;
 		_energyTimer.WaitTime = DurationOfGame;
+		_energyTimer.SetPaused(false);
 		_energyTimer.Start();
 		previousRotation = GetGaugeRotationRange();
+		_gaugeBase.Stop();
 	}
+	
+	private void PauseTimer(bool _)
+	{
+		_energyTimer.SetPaused(true);
+	}
+
 
 	public override void _Process(double delta)
 	{

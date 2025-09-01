@@ -13,7 +13,7 @@ public partial class Map : Node2D
 	{
 		if (Instance != null && Instance != this)
 		{
-			GD.PrintErr("MovementTrackerSystem already exists! Removing duplicate.");
+			GD.PrintErr("Map already exists! Removing duplicate.");
 			QueueFree();
 			return;
 		}

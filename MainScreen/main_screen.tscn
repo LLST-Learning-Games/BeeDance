@@ -116,21 +116,22 @@ position = Vector2(291, 0)
 
 [node name="EnergyGauge" parent="." instance=ExtResource("10_72mna")]
 position = Vector2(849, 295)
-PercentToStartFlashing = 0.15
 
 [node name="WinNode" parent="." instance=ExtResource("11_y7gh2")]
+visible = false
 z_index = 5
 position = Vector2(461, 188)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 
 [node name="Sprite2D" parent="WinNode/Win" index="0"]
 autoplay = "default"
 frame_progress = 0.55139
 
 [node name="LoseNode" parent="." instance=ExtResource("12_mw5ky")]
+visible = false
 z_index = 5
 position = Vector2(460, 180)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 
 [node name="Sprite2D" parent="LoseNode/Lose" index="0"]
 autoplay = "default"

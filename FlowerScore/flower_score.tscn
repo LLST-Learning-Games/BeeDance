@@ -7,6 +7,7 @@
 [node name="FlowerScore" type="Node2D" node_paths=PackedStringArray("_flowerSprite2D")]
 script = ExtResource("1_gq6wd")
 _flowerSprite2D = NodePath("FlowerImage")
+_flowerClosed = ExtResource("1_f0dql")
 _flowerBloomed = ExtResource("2_lx1bj")
 
 [node name="FlowerImage" type="Sprite2D" parent="."]

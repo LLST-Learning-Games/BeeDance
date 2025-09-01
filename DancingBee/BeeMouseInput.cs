@@ -11,10 +11,16 @@ public partial class BeeMouseInput : Node2D
 	
 	public override void _Input(InputEvent @event)
 	{
+		
 		if (@event is InputEventMouseButton mouseButtonEvent)
 		{
 			if (mouseButtonEvent.ButtonIndex == MouseButton.Left)
 			{
+				if (LevelManager.Instance.GameOver)
+				{
+					LevelManager.Instance.ResetGameState();
+				}
+				
 				// this means mouse button was just lifted
 				if (_isMouseButtonDown && !mouseButtonEvent.Pressed)
 				{
