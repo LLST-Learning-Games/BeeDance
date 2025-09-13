@@ -8,11 +8,13 @@ public partial class LevelManager : Node2D
 	[Export] public int ScoretoWin = 5;
 	[Export] public Node2D WinNode;
 	[Export] public Node2D LoseNode;
+	[Export] public Node2D CreditsNode;
 
 	public static LevelManager Instance { get; private set; }
 	
 	private bool gameOver = false;
 	public bool GameOver => gameOver;
+	public bool InCredits => CreditsNode.Visible;
 	public Action<bool> OnGameOverReportWin;
 	public Action OnGameStateReset;
 
@@ -42,6 +44,7 @@ public partial class LevelManager : Node2D
 	{
 		WinNode.Visible = false;
 		LoseNode.Visible = false;
+		CreditsNode.Visible = false;
 	}
 
 	public override void _Process(double delta)
@@ -80,6 +83,11 @@ public partial class LevelManager : Node2D
 		}
 	}
 
+	public void ShowCredits()
+	{
+		CreditsNode.Visible = true;
+	}
+
 	private void HandleDebugInput()
 	{
 		if (Input.IsPhysicalKeyPressed(Key.O))
@@ -103,6 +111,7 @@ public partial class LevelManager : Node2D
 		gameOver = false;
 		LoseNode.Visible = false;
 		WinNode.Visible = false;
+		CreditsNode.Visible = false;
 		OnGameStateReset?.Invoke();
 	}
 }

@@ -8,6 +8,12 @@ public partial class BeeMouseInput : Node2D
 	[Export] private float _maxInputDistance = 3f;
 	[Export] private float _maxDistance = 3f;
 	private bool _isMouseButtonDown;
+
+	private bool WasMouseJustLifted(InputEventMouseButton mouseButtonEvent)
+	{
+        // this means mouse button was just lifted
+        return _isMouseButtonDown && !mouseButtonEvent.Pressed;
+    }
 	
 	public override void _Input(InputEvent @event)
 	{
@@ -16,19 +22,28 @@ public partial class BeeMouseInput : Node2D
 		{
 			if (mouseButtonEvent.ButtonIndex == MouseButton.Left)
 			{
-				if (LevelManager.Instance.GameOver)
+				if (WasMouseJustLifted(mouseButtonEvent))
 				{
-					LevelManager.Instance.ResetGameState();
+					if (LevelManager.Instance.GameOver)
+					{
+
+						if (LevelManager.Instance.InCredits)
+						{
+							LevelManager.Instance.ResetGameState();
+						}
+						else
+						{
+							LevelManager.Instance.ShowCredits();
+						}
+					}
+					else
+					{
+						_beeButt.Position = Vector2.Zero;
+						Map.Instance.SpawnBeeAndMove();
+					}
 				}
-				
-				// this means mouse button was just lifted
-				if (_isMouseButtonDown && !mouseButtonEvent.Pressed)
-				{
-					_beeButt.Position = Vector2.Zero;
-					Map.Instance.SpawnBeeAndMove();
-				}
-				_isMouseButtonDown = mouseButtonEvent.Pressed;
-			}
+                _isMouseButtonDown = mouseButtonEvent.Pressed;
+            }
 		}
 
 		if (!_isMouseButtonDown)

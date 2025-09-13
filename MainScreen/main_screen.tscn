@@ -1,18 +1,19 @@
-[gd_scene load_steps=19 format=3 uid="uid://b2epr4gbyl8lp"]
+[gd_scene load_steps=21 format=3 uid="uid://b2epr4gbyl8lp"]
 
 [ext_resource type="PackedScene" uid="uid://bahwck8bi5qhm" path="res://DancingBee/dancing_bee.tscn" id="1_48woe"]
 [ext_resource type="Texture2D" uid="uid://0qgh6ogq5tv3" path="res://MainScreen/BeeBackground_2.PNG" id="1_ynihm"]
 [ext_resource type="PackedScene" uid="uid://bbhtniwtgwcqn" path="res://Systems/movement_tracker_system.tscn" id="2_y3dpw"]
 [ext_resource type="PackedScene" uid="uid://b18rb1lya6qi4" path="res://MainScreen/map.tscn" id="4_rmsnq"]
 [ext_resource type="PackedScene" uid="uid://becpe5v7i0ym3" path="res://FlowerSpawner/flower_spawner.tscn" id="6_1cfp5"]
-[ext_resource type="PackedScene" path="res://MainScreen/title.tscn" id="6_6reht"]
+[ext_resource type="PackedScene" uid="uid://bdttua6hwogek" path="res://MainScreen/title.tscn" id="6_6reht"]
 [ext_resource type="Texture2D" uid="uid://bfgh38xkw5ej1" path="res://MainScreen/Title.PNG" id="7_6reht"]
 [ext_resource type="PackedScene" uid="uid://bakye64uw2e7x" path="res://FlowerScore/flower_score.tscn" id="8_1y5a2"]
 [ext_resource type="Script" uid="uid://bl45u5jy7i6sb" path="res://MainScreen/FlowerScoreboard.cs" id="8_72mna"]
 [ext_resource type="PackedScene" uid="uid://8oyacwf156lr" path="res://EnergyGauge/energy_gauge.tscn" id="10_72mna"]
 [ext_resource type="PackedScene" uid="uid://ckpc3n8cgjn87" path="res://MainScreen/win_node.tscn" id="11_y7gh2"]
 [ext_resource type="PackedScene" uid="uid://deu0iqnjmpucx" path="res://MainScreen/lose_node.tscn" id="12_mw5ky"]
-[ext_resource type="PackedScene" path="res://MainScreen/level_manager.tscn" id="13_k51hy"]
+[ext_resource type="PackedScene" uid="uid://c2vulrrvdkbok" path="res://MainScreen/level_manager.tscn" id="13_k51hy"]
+[ext_resource type="Texture2D" uid="uid://31lt638f4ip6" path="res://Credits.png" id="14_k51hy"]
 [ext_resource type="PackedScene" uid="uid://622u8tcgdclt" path="res://Systems/audio.tscn" id="14_mw5ky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynihm"]
@@ -26,6 +27,17 @@ size = Vector2(510, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6reht"]
 size = Vector2(392, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tvlru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_k51hy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainScreen" type="Node2D"]
 
@@ -101,18 +113,23 @@ script = ExtResource("8_72mna")
 
 [node name="FlowerScore" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(1, 0)
+_flowerClosed = null
 
 [node name="FlowerScore2" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(78, 0)
+_flowerClosed = null
 
 [node name="FlowerScore3" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(151, 0)
+_flowerClosed = null
 
 [node name="FlowerScore4" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(218, 0)
+_flowerClosed = null
 
 [node name="FlowerScore5" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(291, 0)
+_flowerClosed = null
 
 [node name="EnergyGauge" parent="." instance=ExtResource("10_72mna")]
 position = Vector2(849, 295)
@@ -137,11 +154,20 @@ scale = Vector2(0.485, 0.485)
 autoplay = "default"
 frame_progress = 0.386123
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("FlowerScoreboard", "_energyGauge", "WinNode", "LoseNode") instance=ExtResource("13_k51hy")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("FlowerScoreboard", "_energyGauge", "WinNode", "LoseNode", "CreditsNode") instance=ExtResource("13_k51hy")]
 FlowerScoreboard = NodePath("../FlowerScoreSection")
 _energyGauge = NodePath("../EnergyGauge")
 WinNode = NodePath("../WinNode")
 LoseNode = NodePath("../LoseNode")
+CreditsNode = NodePath("../CreditsNode")
+
+[node name="CreditsNode" type="Node2D" parent="."]
+z_index = 6
+
+[node name="CreditsImage" type="AnimatedSprite2D" parent="CreditsNode"]
+position = Vector2(576, 322)
+scale = Vector2(1.28252, 1.28252)
+sprite_frames = SubResource("SpriteFrames_tvlru")
 
 [node name="Audio" parent="." instance=ExtResource("14_mw5ky")]
 
