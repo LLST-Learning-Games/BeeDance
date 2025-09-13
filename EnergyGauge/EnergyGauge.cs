@@ -65,7 +65,13 @@ public partial class EnergyGauge : Node2D
 		{
 			_gaugeBase.Play();
 		}
-
+		if (_gaugeBase.IsPlaying())
+		{
+			//start flashing at 0.2? at 0.15 left we'll have speedScaler == 1-(0.15/0.2) == 0.25, later that will be clamped at 0.3333 and multiplied by 3 so we're at 1x speed for a while
+			//or if we're at 0.01 left we'll have 1-(0.01/0.2) == 0.95, multiplied by 3 to be nearly 3x speed
+			double speedScalerFromTimeLeft = 1 - (GetPercentRemainingGauge()/Math.Max(0.0000001, PercentToStartFlashing));
+			_gaugeBase.SpeedScale = (float)(3.0 * Math.Max(0.3333, speedScalerFromTimeLeft));
+		}
 	}
 
 	private double GetGaugeRotationRange()

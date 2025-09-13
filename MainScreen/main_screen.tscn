@@ -439,6 +439,7 @@ _flowerClosed = null
 
 [node name="EnergyGauge" parent="." instance=ExtResource("10_72mna")]
 position = Vector2(849, 295)
+PercentToStartFlashing = 0.16
 
 [node name="WinNode" parent="." instance=ExtResource("11_y7gh2")]
 visible = false
