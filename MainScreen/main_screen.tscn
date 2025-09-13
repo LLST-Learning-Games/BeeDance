@@ -342,7 +342,6 @@ animation = &"default"
 [node name="BeeArms" type="AnimatedSprite2D" parent="DancingBee/BeeBody" index="1" node_paths=PackedStringArray("_ArmAnimationTimer")]
 texture_filter = 1
 position = Vector2(2.578, -2.014)
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_owu0p")
 animation = &"dance_dance"
 autoplay = "__curl"
@@ -419,23 +418,18 @@ script = ExtResource("8_72mna")
 
 [node name="FlowerScore" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(1, 0)
-_flowerClosed = null
 
 [node name="FlowerScore2" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(78, 0)
-_flowerClosed = null
 
 [node name="FlowerScore3" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(151, 0)
-_flowerClosed = null
 
 [node name="FlowerScore4" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(218, 0)
-_flowerClosed = null
 
 [node name="FlowerScore5" parent="FlowerScoreSection" instance=ExtResource("8_1y5a2")]
 position = Vector2(291, 0)
-_flowerClosed = null
 
 [node name="EnergyGauge" parent="." instance=ExtResource("10_72mna")]
 position = Vector2(849, 295)
