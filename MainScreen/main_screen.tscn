@@ -1,20 +1,303 @@
-[gd_scene load_steps=21 format=3 uid="uid://b2epr4gbyl8lp"]
+[gd_scene load_steps=30 format=3 uid="uid://b2epr4gbyl8lp"]
 
 [ext_resource type="PackedScene" uid="uid://bahwck8bi5qhm" path="res://DancingBee/dancing_bee.tscn" id="1_48woe"]
 [ext_resource type="Texture2D" uid="uid://0qgh6ogq5tv3" path="res://MainScreen/BeeBackground_2.PNG" id="1_ynihm"]
 [ext_resource type="PackedScene" uid="uid://bbhtniwtgwcqn" path="res://Systems/movement_tracker_system.tscn" id="2_y3dpw"]
+[ext_resource type="Texture2D" uid="uid://bg2p3rtfuf3xs" path="res://DancingBee/Hand_Beecons7.png" id="3_enkmy"]
+[ext_resource type="Texture2D" uid="uid://c1ras3cu0hdar" path="res://DancingBee/Hand_Beecons4.png" id="4_pgowv"]
 [ext_resource type="PackedScene" uid="uid://b18rb1lya6qi4" path="res://MainScreen/map.tscn" id="4_rmsnq"]
+[ext_resource type="Texture2D" uid="uid://fcuelckkvb10" path="res://DancingBee/Hand_Beecons1.png" id="5_r3fqw"]
 [ext_resource type="PackedScene" uid="uid://becpe5v7i0ym3" path="res://FlowerSpawner/flower_spawner.tscn" id="6_1cfp5"]
 [ext_resource type="PackedScene" uid="uid://bdttua6hwogek" path="res://MainScreen/title.tscn" id="6_6reht"]
+[ext_resource type="Texture2D" uid="uid://5h6w1u4ospy1" path="res://DancingBee/Hand_Beecons2.png" id="6_tbaet"]
 [ext_resource type="Texture2D" uid="uid://bfgh38xkw5ej1" path="res://MainScreen/Title.PNG" id="7_6reht"]
+[ext_resource type="Texture2D" uid="uid://p28gx5act1d2" path="res://DancingBee/Hand_Beecons3.png" id="7_x6jrt"]
 [ext_resource type="PackedScene" uid="uid://bakye64uw2e7x" path="res://FlowerScore/flower_score.tscn" id="8_1y5a2"]
+[ext_resource type="Texture2D" uid="uid://dl2nc8b64uoam" path="res://DancingBee/Hand_Beecons6.png" id="8_7ruux"]
 [ext_resource type="Script" uid="uid://bl45u5jy7i6sb" path="res://MainScreen/FlowerScoreboard.cs" id="8_72mna"]
+[ext_resource type="Texture2D" uid="uid://yphdmdoqmt7t" path="res://DancingBee/Hand_Beecons5.png" id="9_xd4lb"]
 [ext_resource type="PackedScene" uid="uid://8oyacwf156lr" path="res://EnergyGauge/energy_gauge.tscn" id="10_72mna"]
+[ext_resource type="Script" uid="uid://cmg12gap3tchm" path="res://DancingBee/BeeArmsAnimatorController.cs" id="10_klk7t"]
 [ext_resource type="PackedScene" uid="uid://ckpc3n8cgjn87" path="res://MainScreen/win_node.tscn" id="11_y7gh2"]
 [ext_resource type="PackedScene" uid="uid://deu0iqnjmpucx" path="res://MainScreen/lose_node.tscn" id="12_mw5ky"]
 [ext_resource type="PackedScene" uid="uid://c2vulrrvdkbok" path="res://MainScreen/level_manager.tscn" id="13_k51hy"]
 [ext_resource type="Texture2D" uid="uid://31lt638f4ip6" path="res://Credits.png" id="14_k51hy"]
 [ext_resource type="PackedScene" uid="uid://622u8tcgdclt" path="res://Systems/audio.tscn" id="14_mw5ky"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_owu0p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_enkmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_enkmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_enkmy")
+}],
+"loop": false,
+"name": &"__curl",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pgowv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pgowv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pgowv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pgowv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}],
+"loop": false,
+"name": &"__left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pgowv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pgowv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}],
+"loop": false,
+"name": &"__left_hard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tbaet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tbaet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_enkmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tbaet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}],
+"loop": false,
+"name": &"__right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xd4lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xd4lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}],
+"loop": false,
+"name": &"__up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}],
+"loop": false,
+"name": &"__wavy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_enkmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tbaet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tbaet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xd4lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pgowv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tbaet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pgowv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tbaet")
+}],
+"loop": false,
+"name": &"dance_dance",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}],
+"loop": false,
+"name": &"go_left_dammit",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xd4lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_enkmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_enkmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xd4lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_enkmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ruux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_enkmy")
+}],
+"loop": false,
+"name": &"he_he_he_he",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pgowv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tbaet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x6jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tbaet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tbaet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3fqw")
+}],
+"loop": false,
+"name": &"uh_good_luck",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynihm"]
 size = Vector2(18, 498)
@@ -49,6 +332,26 @@ texture = ExtResource("1_ynihm")
 [node name="DancingBee" parent="." instance=ExtResource("1_48woe")]
 z_index = 1
 position = Vector2(782, 472)
+
+[node name="BeeBody" parent="DancingBee" index="2"]
+animation = &"default"
+
+[node name="BeeArms" type="AnimatedSprite2D" parent="DancingBee/BeeBody" index="1" node_paths=PackedStringArray("_ArmAnimationTimer")]
+texture_filter = 1
+position = Vector2(2.578, -2.014)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_owu0p")
+animation = &"dance_dance"
+autoplay = "__curl"
+script = ExtResource("10_klk7t")
+_ArmAnimationTimer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="DancingBee/BeeBody/BeeArms"]
+wait_time = 4.0
+autostart = true
+
+[node name="AnimatedSprite2D" parent="DancingBee/BeeButt" index="0"]
+frame_progress = 0.0
 
 [node name="MovementTrackerSystem" parent="." instance=ExtResource("2_y3dpw")]
 
@@ -162,6 +465,7 @@ LoseNode = NodePath("../LoseNode")
 CreditsNode = NodePath("../CreditsNode")
 
 [node name="CreditsNode" type="Node2D" parent="."]
+visible = false
 z_index = 6
 
 [node name="CreditsImage" type="AnimatedSprite2D" parent="CreditsNode"]
@@ -170,6 +474,9 @@ scale = Vector2(1.28252, 1.28252)
 sprite_frames = SubResource("SpriteFrames_tvlru")
 
 [node name="Audio" parent="." instance=ExtResource("14_mw5ky")]
+
+[connection signal="animation_finished" from="DancingBee/BeeBody/BeeArms" to="DancingBee/BeeBody/BeeArms" method="OnAnimationFinished"]
+[connection signal="timeout" from="DancingBee/BeeBody/BeeArms/Timer" to="DancingBee/BeeBody/BeeArms" method="PlayRandomAnimation"]
 
 [editable path="DancingBee"]
 [editable path="FlowerSpawner"]
