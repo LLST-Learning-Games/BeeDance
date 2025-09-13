@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b2epr4gbyl8lp"]
+[gd_scene load_steps=33 format=3 uid="uid://b2epr4gbyl8lp"]
 
 [ext_resource type="PackedScene" uid="uid://bahwck8bi5qhm" path="res://DancingBee/dancing_bee.tscn" id="1_48woe"]
 [ext_resource type="Texture2D" uid="uid://0qgh6ogq5tv3" path="res://MainScreen/BeeBackground_2.PNG" id="1_ynihm"]
@@ -23,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://c2vulrrvdkbok" path="res://MainScreen/level_manager.tscn" id="13_k51hy"]
 [ext_resource type="Texture2D" uid="uid://31lt638f4ip6" path="res://Credits.png" id="14_k51hy"]
 [ext_resource type="PackedScene" uid="uid://622u8tcgdclt" path="res://Systems/audio.tscn" id="14_mw5ky"]
+[ext_resource type="AudioStream" uid="uid://cs1r34pt5kldj" path="res://Music/BeeComm_Music_Defeat.mp3" id="22_tbaet"]
+[ext_resource type="AudioStream" uid="uid://detg50gejxahl" path="res://Music/BeeComm_Music_Victory.mp3" id="23_x6jrt"]
+[ext_resource type="AudioStream" uid="uid://cnqmvp6soc2fe" path="res://Music/BeeComm_Music_Main.mp3" id="24_7ruux"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_owu0p"]
 animations = [{
@@ -457,12 +460,25 @@ scale = Vector2(0.485, 0.485)
 autoplay = "default"
 frame_progress = 0.386123
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("FlowerScoreboard", "_energyGauge", "WinNode", "LoseNode", "CreditsNode") instance=ExtResource("13_k51hy")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("FlowerScoreboard", "_energyGauge", "WinNode", "LoseNode", "CreditsNode", "VictoryMusic", "LossMusic", "GameMusic") instance=ExtResource("13_k51hy")]
 FlowerScoreboard = NodePath("../FlowerScoreSection")
 _energyGauge = NodePath("../EnergyGauge")
 WinNode = NodePath("../WinNode")
 LoseNode = NodePath("../LoseNode")
 CreditsNode = NodePath("../CreditsNode")
+VictoryMusic = NodePath("VictoryMusic")
+LossMusic = NodePath("LossMusic")
+GameMusic = NodePath("GameMusic")
+
+[node name="LossMusic" type="AudioStreamPlayer" parent="LevelManager"]
+stream = ExtResource("22_tbaet")
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="LevelManager"]
+stream = ExtResource("23_x6jrt")
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="LevelManager"]
+stream = ExtResource("24_7ruux")
+autoplay = true
 
 [node name="CreditsNode" type="Node2D" parent="."]
 visible = false

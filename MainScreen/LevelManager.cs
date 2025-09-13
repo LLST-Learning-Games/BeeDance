@@ -9,8 +9,11 @@ public partial class LevelManager : Node2D
 	[Export] public Node2D WinNode;
 	[Export] public Node2D LoseNode;
 	[Export] public Node2D CreditsNode;
+    [Export] public AudioStreamPlayer VictoryMusic;
+    [Export] public AudioStreamPlayer LossMusic;
+    [Export] public AudioStreamPlayer GameMusic;
 
-	public static LevelManager Instance { get; private set; }
+    public static LevelManager Instance { get; private set; }
 	
 	private bool gameOver = false;
 	public bool GameOver => gameOver;
@@ -65,21 +68,25 @@ public partial class LevelManager : Node2D
 
 	private void HandleLoseState()
 	{
+		GameMusic.Stop();
 		if(!gameOver)
 		{
 			LoseNode.Visible = true;
 			gameOver = true;
 			OnGameOverReportWin?.Invoke(gameOver);
+			LossMusic.Play();
 		}
 	}
 
 	private void HandleWinState()
 	{
-		if (!gameOver)
+        GameMusic.Stop();
+        if (!gameOver)
 		{
 			WinNode.Visible = true;
 			gameOver = true;
 			OnGameOverReportWin?.Invoke(gameOver);
+			VictoryMusic.Play();
 		}
 	}
 
@@ -107,11 +114,14 @@ public partial class LevelManager : Node2D
 	}
 
 	public void ResetGameState()
-	{
-		gameOver = false;
+    {
+        LossMusic.Stop();
+        VictoryMusic.Stop();
+        gameOver = false;
 		LoseNode.Visible = false;
 		WinNode.Visible = false;
 		CreditsNode.Visible = false;
 		OnGameStateReset?.Invoke();
-	}
+        GameMusic.Play();
+    }
 }
